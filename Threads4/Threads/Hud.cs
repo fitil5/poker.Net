@@ -124,7 +124,7 @@ namespace Threads
         uint processID = 0;
 
         IntPtr hhook = IntPtr.Zero;
-        public void car()
+        public void hook()
         {
             
 
@@ -161,8 +161,8 @@ namespace Threads
 
         private void Form2_Load_1(object sender, EventArgs e)
         {
-           
-            car();
+
+            hook();
            estadisticas();
             label1.Text = Jugador;
         }
