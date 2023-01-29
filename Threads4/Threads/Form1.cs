@@ -30,9 +30,9 @@ namespace Threads
             RunFileSystemWatcher();
             //LeerFicheroCashWX leerFicheroCashWX = new LeerFicheroCashWX();
 
-            //System.IO.StreamReader reader = new System.IO.StreamReader("C:/Users/Gaming/Documents/winamax3.txt");
+            //System.IO.StreamReader reader = new System.IO.StreamReader("C:/Users/Documents/winamax3.txt");
             //reader.BaseStream.Seek(0, System.IO.SeekOrigin.Begin);
-            //leerFicheroCashWX.leerficheroCash(reader, "C:/Users/Gaming/Documents/winamax3.txt");
+            //leerFicheroCashWX.leerficheroCash(reader, "C:/Users/Documents/winamax3.txt");
             //Formularios f = new Formularios();
             //f.createTempTable("hola");
             //f.addPKey("hola");
