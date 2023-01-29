@@ -43,7 +43,7 @@ namespace Threads
         public void RunFileSystemWatcher()
         {
             FileSystemWatcher fsw = new FileSystemWatcher();
-            fsw.Path = "C:/Users/Gaming/AppData/Local/PokerStars.ES/HandHistory/arruchador1";
+            fsw.Path = "C:/Users/AppData/Local/PokerStars.ES/HandHistory/";
             fsw.NotifyFilter = NotifyFilters.LastAccess;
             fsw.NotifyFilter = NotifyFilters.LastWrite;
             //fsw.NotifyFilter = NotifyFilters.Size;
@@ -54,7 +54,7 @@ namespace Threads
             fsw.EnableRaisingEvents = true;
 
             FileSystemWatcher fsw2 = new FileSystemWatcher();
-            fsw2.Path = "C:/Users/Gaming/AppData/Roaming/wames.04351C371E530C3762CBA45FA283ED972DCDEFB6.1/Local Store/documents/accounts/arruchador1/history";
+            fsw2.Path = "C:/Users/AppData/Roaming/wames.04351C371E530C3762CBA45FA283ED972DCDEFB6.1/Local Store/documents/accounts/history";
             fsw2.NotifyFilter = NotifyFilters.LastAccess;
             fsw2.NotifyFilter = NotifyFilters.LastWrite;
             //fsw.NotifyFilter = NotifyFilters.Size;
