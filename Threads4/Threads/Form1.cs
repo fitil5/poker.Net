@@ -500,29 +500,11 @@ namespace Threads
     {
             AsientosCash a = new AsientosCash();
             a.jugadoresall();            
-            listBox1.DisplayMember = a.DataTable.Columns[0].ColumnName;
-            listBox1.DataSource = a.DataTable;
+            
 
     }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            AsientosCash a = new AsientosCash();
-            string selectedItem = listBox1.GetItemText(listBox1.SelectedItem);
-            DataTable dt =a.evmasjugador(selectedItem);
-            //double[] ev = dt.AsEnumerable().Select(r => r.Field<double>("ev")).ToArray();
-            //long[] numero_manos = dt.AsEnumerable().Select(r => r.Field<long>("numero_manos")).ToArray();
-            //cChartType = SeriesChartType.Line;
-            chart1.Series["Series1"].ChartType = SeriesChartType.Line;
-            chart1.Series["Series1"].XValueMember = "numero_manos";
-            chart1.Series["Series1"].YValueMembers = "ev";
-            chart1.ChartAreas[0].AxisX.Minimum = 1;
-            chart1.ChartAreas[0].AxisX.Title = "Numero Manos";
-            chart1.ChartAreas[0].AxisY.Title = "Euros €";
-            chart1.DataSource = dt;
-            chart1.DataBind();
-
-        }
+        
 
     }
 
