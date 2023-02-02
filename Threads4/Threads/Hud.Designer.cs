@@ -65,6 +65,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(162, 72);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -73,7 +74,6 @@
             this.Name = "Hud";
             this.Opacity = 0.3D;
             this.Text = "Form21";
-            this.TransparencyKey = System.Drawing.Color.Black;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Hud_FormClosing);
             this.Load += new System.EventHandler(this.Form2_Load_1);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Hud_MouseDown);

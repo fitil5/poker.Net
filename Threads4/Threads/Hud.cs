@@ -21,7 +21,7 @@ namespace Threads
         {
             InitializeComponent();
         }
-        private string _tituloventana;   
+        private string _tituloventana;
         private string _jugador;
         private int _numJugador;
         private String _jugadoresMesa;
@@ -41,7 +41,7 @@ namespace Threads
         private delegate void WinEventDelegate(IntPtr hWinEventHook, uint eventType, IntPtr hwnd, int idObject, int idChild, uint dwEventThread, uint dwmsEventTime);
 
 
-        private void WinEventProc(IntPtr hWinEventHook, uint eventType, IntPtr hwnd, int idObject, int idChild, uint dwEventThread, uint dwmsEventTime)
+        private  void WinEventProc(IntPtr hWinEventHook, uint eventType, IntPtr hwnd, int idObject, int idChild, uint dwEventThread, uint dwmsEventTime)
         {
             if (eventType == EVENT_SYSTEM_MOVESIZEEND)
             {
@@ -57,7 +57,7 @@ namespace Threads
                 }
 
             }
-           
+
 
             Console.WriteLine(eventType.ToString());
 
@@ -96,7 +96,7 @@ namespace Threads
             public int Right { get; set; }
             public int Bottom { get; set; }
         }
-        
+
         static class NativeMethods
         {
 
@@ -120,22 +120,22 @@ namespace Threads
         static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint lpdwProcessId);
 
         IntPtr hwnd;
-        
+
         uint processID = 0;
 
         IntPtr hhook = IntPtr.Zero;
-        public void hook()
+        public void car()
         {
-            
 
-            hwnd = NativeMethods.FindWindow(null, Tituloventana);           
+
+            hwnd = NativeMethods.FindWindow(null, Tituloventana);
             GetWindowThreadProcessId(hwnd, out processID);
             dele = new WinEventDelegate(WinEventProc);
             hhook = NativeMethods.SetWinEventHook(EVENT_SYSTEM_MOVESIZESTART, EVENT_OBJECT_DESTROY, IntPtr.Zero, dele, (uint)processID, (uint)0, WINEVENT_OUTOFCONTEXT);
             //hhook = NativeMethods.SetWinEventHook((int)EVENT_SYSTEM_MOVESIZESTART, (int)EVENT_OBJECT_DESTROY, IntPtr.Zero, WindowEventCallback, (int)processID, (int)0,(int) WINEVENT_OUTOFCONTEXT);
-           mover();
+            mover();
 
-            
+
         }
         public void unhook()
         {
@@ -144,15 +144,15 @@ namespace Threads
             Debug.WriteLine("unhook");
             this.Close();
         }
-        
+
         public void mover()
         {
             Rect move = new Rect();
             NativeMethods.GetWindowRect(hwnd, ref move);
             Formularios f = new Formularios();
-           f.posicionformbynumjugador(NumJugador,JugadoresMesa);
-           
-            this.Left = move.Left + (Convert.ToInt32(f.DataTable.Rows.Count==0 ? 0 : Convert.ToInt32(f.DataTable.Rows[0][0])));
+            f.posicionformbynumjugador(NumJugador, JugadoresMesa);
+
+            this.Left = move.Left + (Convert.ToInt32(f.DataTable.Rows.Count == 0 ? 0 : Convert.ToInt32(f.DataTable.Rows[0][0])));
             this.Top = move.Top + (Convert.ToInt32(f.DataTable.Rows.Count == 0 ? 0 : Convert.ToInt32(f.DataTable.Rows[0][1])));
             NativeMethods.SetWindowLong(this.Handle, -8 /*GWL_HWNDPARENT*/, hwnd);
         }
@@ -162,8 +162,8 @@ namespace Threads
         private void Form2_Load_1(object sender, EventArgs e)
         {
 
-            hook();
-           estadisticas();
+            car();
+            estadisticas();
             label1.Text = Jugador;
         }
 
@@ -181,8 +181,8 @@ namespace Threads
             {
                 this.label2.Text = m.DataTable.Rows[0][0].ToString();
             }
-          
-          
+
+
         }
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
